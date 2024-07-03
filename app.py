@@ -19,7 +19,6 @@ def init_db():
     conn.commit()
     conn.close()
 
-
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
@@ -43,10 +42,13 @@ def calculate():
 
 @app.route('/save', methods=['POST'])
 def save():
+    print("Route /save has been called")
     date = request.form['date']
     calories_consumed = request.form['caloriesConsumed']
     calories_burned = request.form['caloriesBurned']
     weight_change = request.form['weightChange']
+
+    print(f"Data received: {date}, {calories_consumed}, {calories_burned}, {weight_change}")
     
     conn = sqlite3.connect('calories.db')
     c = conn.cursor()
@@ -55,7 +57,7 @@ def save():
     conn.commit()
     conn.close()
     
-    return redirect(url_for('home'))
+    return redirect(url_for('entries'))  # Redirect to the entries page
 
 @app.route('/entries')
 def entries():
