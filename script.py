@@ -22,5 +22,5 @@ with open("Calorie_Tracker.txt", "a") as file:
     
     if weightChangeInPounds <= 0:
         file.write(f"Congratulations you lost {weightChangeInPounds} pounds today! Keep going!\n")
-    else:  # Simplified to else since if not <= 0, it must be > 0
+    else:
         file.write(f"You gained {weightChangeInPounds} pounds today. Take it easy tomorrow and get more exercise!\n")

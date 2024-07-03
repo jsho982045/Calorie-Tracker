@@ -2,16 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Calorie Tracker</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Welcome to Calorie Tracker</h1>
-    <!-- Add this inside the body tag of index.html -->
-    <a href="/entries">View All Entries</a>
-    <form action="/calculate" method="post">
-        <input type="number" name="caloriesConsumed" placeholder="Enter calories consumed today" required>
-        <input type="number" name="caloriesBurned" placeholder="Enter calories burned today" required>
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Welcome to Calorie Tracker</h1>
+                        <a href="/entries" class="btn btn-primary mb-3 w-100">View All Entries</a>
+                        <form action="/calculate" method="post" class="form-group">
+                            <div class="form-group">
+                                <label for="caloriesConsumed">Calories Consumed:</label>
+                                <input type="number" name="caloriesConsumed" id="caloriesConsumed" class="form-control" placeholder="Enter calories consumed today" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="caloriesBurned">Calories Burned:</label>
+                                <input type="number" name="caloriesBurned" id="caloriesBurned" class="form-control" placeholder="Enter calories burned today" required>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
