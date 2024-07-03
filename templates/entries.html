@@ -1,0 +1,41 @@
+<!-- templates/entries.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Entries</title>
+</head>
+<body>
+    <h1>All Entries</h1>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Calories Consumed</th>
+            <th>Calories Burned</th>
+            <th>Weight Change</th>
+            <th>Actions</th>
+        </tr>
+        {% if entries %}
+            {% for entry in entries %}
+            <tr>
+                <td>{{ entry[1] }}</td>
+                <td>{{ entry[2] }}</td>
+                <td>{{ entry[3] }}</td>
+                <td>{{ entry[4] }}</td>
+                <td>
+                    <form action="/delete/{{ entry[0] }}" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5">No entries found</td>
+            </tr>
+        {% endif %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>

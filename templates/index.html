@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calorie Tracker</title>
+</head>
+<body>
+    <h1>Welcome to Calorie Tracker</h1>
+    <!-- Add this inside the body tag of index.html -->
+    <a href="/entries">View All Entries</a>
+    <form action="/calculate" method="post">
+        <input type="number" name="caloriesConsumed" placeholder="Enter calories consumed today" required>
+        <input type="number" name="caloriesBurned" placeholder="Enter calories burned today" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
