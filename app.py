@@ -64,10 +64,20 @@ def entries():
     c.execute('SELECT id, date, calories_consumed, calories_burned, weight_change FROM entries')
     entries = c.fetchall()
     conn.close()
-    print("Entries fetched from database:")
-    print(entries)  # Debug print
-    return render_template('entries.html', entries=entries)
-
+    
+    # Calculate the total weight change
+    total_weight_change = sum(entry[4] for entry in entries)
+    total_weight_change = round(total_weight_change, 2)
+    weight_change_type = "lost" if total_weight_change < 0 else "gained"
+    
+    print(f"Total Weight Change: {total_weight_change}")  # Debug print
+    
+    if not entries:
+        print("No entries to display.")  # Debug print
+    else:
+        print(entries)  # Debug print
+    
+    return render_template('entries.html', entries=entries, total_weight_change=total_weight_change, weight_change_type=weight_change_type)
 
 @app.route('/delete/<int:id>', methods=['POST'])
 def delete(id):
